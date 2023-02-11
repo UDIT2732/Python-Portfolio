@@ -1,0 +1,7 @@
+q: tuple https://www.hackerrank.com/challenges/python-tuples/problem?isFullScreen=true
+logic: convert list to tuple and map to integer by map(int, input().split())
+soln:
+if __name__ == '__main__':
+    n = int(input())
+    integer_list = tuple(map(int, input().split()))
+    print(hash(integer_list))
