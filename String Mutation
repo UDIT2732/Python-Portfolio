@@ -1,0 +1,7 @@
+Q: String Mutation https://www.hackerrank.com/challenges/python-mutations/problem?isFullScreen=true
+Logic: just replace the character of a string after converting it into a list of characters
+Soln:
+def mutate_string(string, position, character):
+    k= [*string]
+    k[position] = character
+    return ''.join(k)
