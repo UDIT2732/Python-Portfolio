@@ -1,5 +1,6 @@
 Q: Find a string within a string https://www.hackerrank.com/challenges/find-a-string/problem?isFullScreen=false
 Logic: convert the string into a list of items of length(founding string). for example: abcd to find ab --- divide in ab,bc,cd and then use list count function
+OR could have used .starts with function from string[i:].startswith(substr)
 Soln:
 def count_substring(string, sub_string):
     l =[]
