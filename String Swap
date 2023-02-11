@@ -1,0 +1,11 @@
+Q: Strings swap https://www.hackerrank.com/challenges/swap-case/problem?isFullScreen=true
+Logic: if lowercase then convert to upper else convert to lower OR use .swapcase()
+Soln:
+def swap_case(s):
+    k= []
+    for i in [*s]:
+        if i == i.lower():
+            k.append(i.upper())
+        else:
+            k.append(i.lower())
+    return ''.join(k)
