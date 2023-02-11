@@ -1,0 +1,5 @@
+Q: String split and join https://www.hackerrank.com/challenges/python-string-split-and-join/problem?isFullScreen=true
+Logic: first split the list and then rejoin it with different delimiter
+Soln:
+def split_and_join(line):
+    return "-".join(line.split(" "))
