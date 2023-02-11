@@ -1,0 +1,17 @@
+Q: list handling https://www.hackerrank.com/challenges/python-lists/problem?isFullScreen=true
+
+Logic: Use eval function to convert str into python commands
+Use ','.join(listname) => 1,2,3
+
+Sol:
+N = int(input())
+l= []
+for _ in range(N): 
+    oi = input().split()
+    cmd = oi[0]
+    arg = oi[1:]
+    if cmd != 'print':
+        cmd += '(' + ','.join(arg) + ')'
+        eval('l.' + cmd)
+    else:
+        print(l)
