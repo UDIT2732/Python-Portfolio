@@ -1,0 +1,5 @@
+Q: join strings https://www.hackerrank.com/challenges/whats-your-name/problem?isFullScreen=true
+Logic: use {} .format(a,b,c) to avoid using + and ""
+Soln:
+def print_full_name(first, last):
+    return print("Hello {} {}! You just delved into python.".format(first, last))
