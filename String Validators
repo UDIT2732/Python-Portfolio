@@ -1,0 +1,10 @@
+Q: String Validators https://www.hackerrank.com/challenges/string-validators/problem?isFullScreen=true
+Logic: max(true, false) = true
+Soln:
+if __name__ == '__main__':
+    s = input()
+    print(max([x.isalnum() for x in [*s]]))
+    print(max([x.isalpha() for x in [*s]]))
+    print(max([x.isdigit() for x in [*s]]))
+    print(max([x.islower() for x in [*s]]))
+    print(max([x.isupper() for x in [*s]]))
