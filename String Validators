@@ -8,3 +8,9 @@ if __name__ == '__main__':
     print(max([x.isdigit() for x in [*s]]))
     print(max([x.islower() for x in [*s]]))
     print(max([x.isupper() for x in [*s]]))
+ -----------------------------------------------------updated code----use eval 
+ 
+ if __name__ == '__main__':
+    s = input()
+    for i in ['isalnum','isalpha','isdigit','islower','isupper']:
+        print(eval('max([x.'+ i+'() for x in [*s]])'))
