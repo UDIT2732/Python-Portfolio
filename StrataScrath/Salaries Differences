@@ -1,0 +1,18 @@
+''''
+Salaries Differences : https://platform.stratascratch.com/coding/10308-salaries-differences?tabname=question
+
+Write a query that calculates the sum between the lowest salaries found in the marketing and engineering departments. 
+Output just the absolute sum in salaries.
+
+DataFrames: db_employee, db_dept
+
+''''
+
+import pandas as pd
+
+e, d = db_employee, db_dept
+ed = pd.merge(e, d, left_on="department_id", right_on="id")
+(
+    ed.loc[ed["department"] == "marketing"]["salary"].max()
+    - ed.loc[ed["department"] == "engineering"]["salary"].max()
+)
