@@ -1,0 +1,25 @@
+''''
+
+Find all posts which were reacted to with a heart
+
+
+Find all posts which were reacted to with a heart. For such posts output all columns from facebook_posts table.
+
+https://platform.stratascratch.com/coding/10087-find-all-posts-which-were-reacted-to-with-a-heart?code_type=2
+
+df.iloc[:,[1]] = 1st column
+
+''''
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+r = facebook_reactions
+p = facebook_posts
+
+p.merge(
+    r[r["reaction"] == "heart"],
+    left_on="post_id",
+    right_on="post_id",
+    suffixes=("_l", "_r"),
+).iloc[:, :5].drop_duplicates()
