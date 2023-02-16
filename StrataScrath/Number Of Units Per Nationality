@@ -24,6 +24,8 @@ n_bedrooms:int64
 country:object
 city:object
 
+Learning: remover duplicates, use df[df[''] == ''] to get filtered df instead of using .loc
+
 ''''
 
 # Import your libraries
