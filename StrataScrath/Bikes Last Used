@@ -1,0 +1,15 @@
+''''
+
+Find the last time each bike was in use. 
+Output both the bike number and the date-timestamp 
+of the bike's last use (i.e., the date-time the bike was returned). 
+Order the results by bikes that were most recently used.
+
+
+''''
+import pandas as pd
+
+b = dc_bikeshare_q1_2012
+b.groupby("bike_number", as_index=False)["end_time"].max().sort_values(
+    "end_time", ascending=False
+)
