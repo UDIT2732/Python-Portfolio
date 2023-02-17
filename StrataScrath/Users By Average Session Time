@@ -11,6 +11,7 @@ comments: .dt.day or day_of_year
 
 # Import your libraries
 import pandas as pd
+import numpy as np
 
 # Start writing code
 f = facebook_web_log
@@ -28,5 +29,5 @@ e = (
 )
 b = l.merge(e, on=["user_id", "day"])
 b["diff"] = b["timestamp_y"] - b["timestamp_x"]
-b.groupby("user_id", as_index=False).mean("diff")
+b.groupby("user_id", as_index=False)['diff'].apply(np.mean)
 
