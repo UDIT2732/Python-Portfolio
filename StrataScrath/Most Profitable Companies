@@ -1,0 +1,17 @@
+''''
+https://platform.stratascratch.com/coding/10354-most-profitable-companies?tabname=solutions&code_type=2
+
+Find the 3 most profitable companies in the entire world.
+Output the result along with the corresponding company name.
+Sort the result based on profits in descending order.
+
+
+Comments: Can use .nlargest(3,'profit') 
+
+''''
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+forbes_global_2010_2014.sort_values("profits", ascending=False).iloc[:3, [0, 7]]
