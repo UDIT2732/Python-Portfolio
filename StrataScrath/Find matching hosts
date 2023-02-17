@@ -1,0 +1,15 @@
+''''
+
+Find matching hosts and guests in a way that they are both of the same gender and nationality
+https://platform.stratascratch.com/coding/10078-find-matching-hosts-and-guests-in-a-way-that-they-are-both-of-the-same-gender-and-nationality?tabname=question
+
+
+''''
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+g = airbnb_guests[["guest_id", "nationality", "gender"]]
+h = airbnb_hosts[["host_id", "nationality", "gender"]]
+g.merge(h, on=["nationality", "gender"])[["guest_id", "host_id"]].drop_duplicates()
