@@ -1,0 +1,24 @@
+''''
+Write a query that'll identify returning active users. A returning active user
+is a user that has made a second purchase within 7 days of any other of their purchases. Output a list of user_ids of these returning active users.
+
+DataFrame: amazon_transactions
+
+https://platform.stratascratch.com/coding/10322-finding-user-purchases?tabname=question
+
+Timedelta(days = 7), groupby().diff()
+
+''''
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+a = amazon_transactions
+a["lead"] = (
+    a.sort_values(by="created_at", ascending=True)
+    .groupby("user_id")["created_at"]
+    .shift(-1)
+)
+a["min time"] = (a["lead"] - a["created_at"]).dt.days
+a[a["min time"] <= 7]["user_id"].unique()
