@@ -1,0 +1,19 @@
+''''
+
+Find the titles of workers that earn the highest salary. Output the highest-paid title or multiple titles that share the highest salary.
+
+https://platform.stratascratch.com/coding/10353-workers-with-the-highest-salaries?tabname=question
+
+
+comment: df.column = df.column.max()
+
+''''
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+w = worker
+w[w["salary"] == w["salary"].max()].merge(
+    title, how="left", left_on="worker_id", right_on="worker_ref_id"
+)[["worker_title", "salary"]]
