@@ -1,0 +1,32 @@
+''''
+Calculate each user's average session time. A session is defined as the time difference between a page_load and 
+page_exit. For simplicity, assume a user has only 1 session per day and if there are multiple of the same events 
+on that day, consider only the latest page_load and earliest page_exit. Output the user_id and their average session time.
+
+https://platform.stratascratch.com/coding/10352-users-by-avg-session-time?code_type=2
+
+comments: .dt.day or day_of_year
+
+''''
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+f = facebook_web_log
+f["day"] = f["timestamp"].dt.day_of_year
+
+l = (
+    f[f.action == "page_load"]
+    .groupby(["user_id", "day"], as_index=False)
+    .max("timestamp")
+)
+e = (
+    f[f.action == "page_exit"]
+    .groupby(["user_id", "day"], as_index=False)
+    .min("timestamp")
+)
+b = l.merge(e, on=["user_id", "day"])
+b["diff"] = b["timestamp_y"] - b["timestamp_x"]
+b.groupby("user_id", as_index=False).mean("diff")
+
