@@ -1,0 +1,28 @@
+''''
+Acceptance Rate By Date
+
+https://platform.stratascratch.com/coding/10285-acceptance-rate-by-date?tabname=question
+
+What is the overall friend acceptance rate by date? Your output should have the rate of acceptances by the date the request was sent. 
+Order by the earliest date to latest.
+Assume that each friend request starts by a user sending (i.e., user_id_sender) a friend request to another user (i.e., user_id_receiver) 
+that's logged in the table with action = 'sent'. If the request is accepted, 
+the table logs action = 'accepted'. If the request is not accepted, no record of action = 'accepted' is logged.
+
+
+comments: pd.to_numeric('')
+''''
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+f = fb_friend_requests
+a = f[f.action == "accepted"] 
+s = f[f.action == "sent"]
+r = s.merge(a, how="left", on=["user_id_sender", "user_id_receiver"])
+r1 = r.groupby("date_x", as_index=False)[["action_x", "action_y"]].count()
+pd.to_numeric(r1["action_y"], downcast="float")
+pd.to_numeric(r1["action_x"], downcast="float")
+r1["rate of acceptances"] = r1["action_y"] / r1["action_x"]
+r1[["date_x", "rate of acceptances"]]
